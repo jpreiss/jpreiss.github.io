@@ -1,0 +1,114 @@
+body {
+  font-family: "lucida sans unicode", "lucida grande", "lucida sans", sans-serif;
+  margin: 0 auto;
+  max-width: 800px;
+  line-height: 1.5;
+  background: #F0F0F0;
+  padding-bottom: 30px;
+}
+
+/* header. h1 and h2 are only used here. */
+.header {
+  padding-top: 10pt;
+  text-align: center;
+}
+
+h1 {
+  margin: 5pt;
+}
+
+h2 {
+  font-weight: normal;
+  font-size: 16pt;
+  margin: 0;
+}
+
+.linkstrip {
+  margin-top: 30pt;
+}
+
+.linkstrip a {
+  padding: 0 6pt;
+}
+
+/* sections */
+.section {
+  background: #FFF;
+  margin: 0;
+  padding: 5pt 16pt 5pt 16pt;
+}
+
+.section ul {
+  padding-left: 10pt;
+}
+
+ul li {
+  margin: 10pt 0;
+}
+
+h3 {
+  font-size: 18pt;
+  margin-top: 24pt;
+  margin-bottom: 0;
+  line-height: 1.2;
+}
+
+ul {
+  margin: 0;
+}
+
+h3 span {
+  background: #07D;
+  color: #FFF;
+  padding: 0 3pt;
+  margin: 0;
+}
+
+/* special sections */
+.email {
+  font-family: monospace;
+  white-space: pre-wrap;
+}
+
+/* link animation stolen from meowni.ca */
+a {
+  color: #28D;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #579;
+  text-decoration: none;
+}
+
+a:hover {
+  -webkit-animation: zomg 0.5s infinite;
+  -moz-animation: zomg 0.5s infinite;
+  animation: zomg 0.5s infinite;
+}
+
+@-webkit-keyframes zomg {
+  0%, 100% { color: #7ccdea; }
+  17%      { color: #0074D9; }
+  34%      { color: #2ECC40; }
+  51%      { color: #FFDC00; }
+  68%      { color: #B10DC9; }
+  85%      { color: #FF4136; }
+}
+@-moz-keyframes zomg {
+  0%, 100% { color: #7ccdea; }
+  17%      { color: #0074D9; }
+  34%      { color: #2ECC40; }
+  51%      { color: #FFDC00; }
+  68%      { color: #B10DC9; }
+  85%      { color: #FF4136; }
+}
+@keyframes zomg {
+  0%, 100% { color: #7ccdea; }
+  17%      { color: #0074D9; }
+  34%      { color: #2ECC40; }
+  51%      { color: #FFDC00; }
+  68%      { color: #B10DC9; }
+  85%      { color: #FF4136; }
+}
+
