@@ -57,8 +57,9 @@ ul {
   margin: 0;
 }
 
+/* the tabs on top of the sections */
 h3 span {
-  background: #07D;
+  background: #111;
   color: #FFF;
   padding: 0 3pt;
   margin: 0;
