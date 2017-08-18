@@ -1,7 +1,9 @@
+
 <html>
 <head>
   <title>James Alan Preiss</title>
   <link rel="stylesheet" href="./style.css" type="text/css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
@@ -25,9 +27,10 @@
 <p>
 I am a Ph.D. student at the 
 USC <a href="http://robotics.usc.edu/resl/">Robotic Embedded Systems Lab</a> in Los Angeles, CA.
-My goal is to make autonomous quadcopters fly quickly and gracefully through unknown environments.
-I&nbsp;also helped design and build USC's Crazyswarm 49-quadcopter research platform.
-<!-- wait for link I helped build the USC Robotics Warehouse.-->
+
+I am interested in methods that unify perception, planning, and control to increase the performance of
+autonomous mobile robots moving at speed in the real world. 
+I also helped design and build USC's Crazyswarm 49-quadcopter research facility.
 </p>
 <p>
 Before joining RESL, 
@@ -42,24 +45,59 @@ I completed a B.S. in Mathematics and B.A. in Photography at
 <h3><span>videos</span></h3>
 <div class="section">
 <ul>
-<li><a href="https://www.youtube.com/watch?v=ezTayb76x9U">
+<li><a href="https://www.youtube.com/watch?v=YnGZ-arUwgc">
+Downwash-Aware Trajectory Planning for Large Quadcopter Teams</a></li>
+<li><a href="https://www.youtube.com/watch?v=D0CrjoYDt9w">
 Crazyswarm: A Large Nano-Quadcopter Swarm</a></li>
+<li><a href="https://www.youtube.com/watch?v=v8UkOtRJEsw">
+Observability-Aware Trajectory Optimization for Self-Calibration with Application to UAVs</a></li>
 </ul>
 </div>
 
 <h3><span>publications</span></h3>
 <div class="section">
 <ul>
-  <!--<li>Crazyswarm: A Large Nano-Quadcopter Swarm (IROS 2016 late-breaking results)</li>-->
-  <li><b>Observability-Aware Trajectory Optimization for Self-Calibration with Application to UAVs.</b>
-  Karol Hausman, James Preiss, Stephan Weiss, and Gaurav S. Sukhatme.
-  arXiv, 2016 [<a href="https://arxiv.org/pdf/1604.07905.pdf">pdf</a>]</li>
+  <li>
+    <b>Trajectory Planning for Quadrotor Swarms.</b>
+    <br/>Wolfgang H&ouml;nig, James A. Preiss, T.K. Satish Kumar, Gaurav S. Sukhatme, and Nora Ayanian.
+    <br/>IEEE Transactions on Robotics, under review.
+    [<a href="https://www.youtube.com/watch?v=7KIa9FlmbRc">video</a>]
+  </li>
+  <li>
+    <b>Trajectory Optimization for Self-Calibration and Navigation.</b>
+    <br/>James A. Preiss, Karol Hausman, Gaurav S. Sukhatme, and Stephan Weiss.
+    <br/>Robotics: Science and Systems, 2017.
+    [<a href="https://storage.googleapis.com/rss2017-papers/70.pdf">pdf</a>]
+  </li>
+  <li name="iros17planning">
+    <b>Downwash-Aware Trajectory Planning for Large Quadcopter Teams.</b>
+    <br/>James A. Preiss, Wolfgang H&ouml;nig, Nora Ayanian, and Gaurav S. Sukhatme
+    <br/>IROS 2017 (accepted).
+    [<a href="https://arxiv.org/pdf/1704.04852">arXiv version</a>]
+    [<a href="https://www.youtube.com/watch?v=YnGZ-arUwgc">video</a>]
+  </li>
+  <li>
+    <b>Crazyswarm: A Large Nano-Quadcopter Swarm.</b>
+    <br/>James A. Preiss, Wolfgang H&ouml;nig, Gaurav S. Sukhatme, and Nora Ayanian.
+    <br/>IEEE International Conference on Robotics and Automation, 2017.
+    [<a href="http://usc-actlab.github.io/publications/Preiss_ICRA2017.pdf">pdf</a>]
+    [<a href="https://www.youtube.com/watch?v=D0CrjoYDt9w">video</a>]
+  </li>
+  <li>
+    <b>Observability-Aware Trajectory Optimization for Self-Calibration with Application to UAVs.</b>
+    <br/>Karol Hausman, James A. Preiss, Gaurav S. Sukhatme, and Stephan Weiss.
+    <br/>IEEE Robotics and Automation Letters (RA-L), 2017.
+    [<a href="https://arxiv.org/pdf/1604.07905.pdf">arXiv version</a>]
+    [<a href="https://www.youtube.com/watch?v=v8UkOtRJEsw">video</a>]
+  </li>
 </ul>
 </div>
 
 <h3><span>code</span></h3>
 <div class="section">
 <ul>
+  <li><a href="https://github.com/USC-ACTLab/crazyswarm">crazyswarm</a> - our full stack for flying 49+ Crazyflie quadcopters in a motion capture space. Includes object tracking, improved radio protocols, onboard sensor fusion, nonlinear controller, onboard trajectory planning, ROS node, and Python scripting.</li>
+  <li><a href="https://github.com/jpreiss/smoothener">smoothener</a> - convert multi-robot waypoint sequences into smooth piecewise polynomial trajectories. Implementation of the continuous portion of <a href="#iros17planning">our IROS 2017 paper</a>.</li>
   <li><a href="https://github.com/jpreiss/cmath3d">cmath3d</a> - a 3d math library for embedded C</li>
   <li><a href="https://github.com/jpreiss/quatcompress">quatcompress</a> - compress a quaternion into 32 bits</li>
 </ul>
