@@ -57,6 +57,12 @@ ul {
   margin: 0;
 }
 
+/* tiny text at bottom of intro */
+.updated-notice {
+  font-size: 10pt;
+  font-style: italic;
+}
+
 /* the tabs on top of the sections */
 h3 span {
   background: #111;
