@@ -1,0 +1,111 @@
+
+<html>
+<head>
+  <title>James Alan Preiss</title>
+  <link rel="stylesheet" href="./style.css" type="text/css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+<div class="header">
+  <h1>James Alan Preiss</h1>
+  <h2>fun stuff</h2>
+</div>
+
+<h3><span>mathematics</span></h3>
+<div class="section">
+  <p>Interesting web pages about math and theoretical CS topics.</p>
+  <ul>
+    <li><a href="http://lkozma.net/inequalities_cheat_sheet/">
+      Useful inequalities cheat sheet.
+    </a></li>
+    <li><a href="https://ai.stanford.edu/~gwthomas/notes/concentration.html">
+      A nice derivation of Chernoff/Hoeffding bounds.
+    </a></li>
+    <li><a href="http://jeff560.tripod.com/m.html">
+      Earliest Known Uses of Some of the Words of Mathematics.
+    </a></li>
+    <li><a href="http://www.cs.ox.ac.uk/projects/pseudospectra/">
+      Pseudospectra gateway.
+    </a></li>
+    <li><a href="http://www.oftenpaper.net/sierpinski.htm">
+      The Sierpinski triangle page to end most Sierpinski triangle pages™.
+    </a></li>
+  </ul>
+</div>
+
+<h3><span>engineering</span></h3>
+<div class="section">
+  <p>Interesting web pages about programming, electronics, etc.</p>
+  <ul>
+    <li><a href="https://agner.org/optimize/">
+      Agner Fog's software optimization resources.
+    </a></li>
+    <li><a href="http://graphics.stanford.edu/~seander/bithacks.html">
+      Bit twiddling hacks.
+    </a></li>
+  </ul>
+</div>
+
+<h3><span>unix scripts</span></h3>
+<div class="section">
+  <h4><code>assemble.sh</code></h4>
+  <p>
+    Consumes a webpage with a list of links to PDFs
+    and concatenates them into a single PDF.
+    The main challenge is preserving the list order
+    instead of reverting to the alphabetic order of the filenames.
+  </p>
+
+  Non-standard packages: <code>pdfjoin</code>
+  <br>Usage: <code>assemble.sh url</code>
+
+  <pre>
+# wget     : Get list of PDF links in the order they appear in the webpage.
+# grep     : Filter wget's other info like HTTP status codes; get bare URLs.
+# tee      : Print the list of PDF links for user's inspection.
+# parallel : Download each PDF and save as <order of appearance number>.pdf.
+#              Echo the list of filenames for piping to the next command.
+# xargs    : Concatenate the lines of stdin into one argv for pdfjoin.
+# pdfjoin  : Concatenate the PDFs.
+
+wget -r --no-parent --spider --no-verbose --accept "*.pdf" $1 2>&1 \
+    | grep -o "http.*pdf" \
+    | tee /dev/stderr \
+    | parallel -a - --keep-order "wget -q -O {#}.pdf {1}; echo '{#}.pdf'" \
+    | xargs pdfjoin --outfile "book.pdf" --rotateoversize false
+</pre>
+
+  <h4><code>.bashrc snippets</code></h4>
+  <p>
+    Some one-liners from my .bashrc that might be useful.
+  </p>
+
+  <pre>
+# Shortcut to open a Python REPL with my standard imports.
+alias pynp='python -i -c"import numpy as np; import numpy.linalg as la; \
+            import scipy as sp; import matplotlib.pyplot as plt; \
+            import seaborn as sns; import pandas as pd"'
+
+# Shortcut to run latexmk "Overleaf style" locally.
+latexmker() { latexmk -pdf -pvc $1 &lt;/dev/null; }
+
+# Run pdfcrop on all .pdf files in the current directory.
+pdfcropall() { find . -name "*.pdf" | xargs -P 8 -I@ pdfcrop @ @ }
+
+# Switch to Greek keyboard and back by holding both shifts.
+# Great for discussing math in emails!
+setxkbmap -layout "us,gr" -option "grp:shifts_toggle";
+</pre>
+</div>
+
+<div class="header">
+  <div class="linkstrip">
+    <a href="index.html">back to main page</a> 
+  </div>
+</div>
+
+</body>
+
+</html>
