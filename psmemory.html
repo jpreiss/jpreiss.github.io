@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Photoshop memory usage calculator</title>
+    <style type="text/css">
+        body {
+            margin: 0 auto;
+            max-width: 40em;
+            line-height: 1.5;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        form li + li {
+            margin-top: 1em;
+        }
+        #outbox {
+            padding: 1em;
+            border: 0.1em #2AF solid;
+            background: #DEF;
+        }
+    </style>
+    <script type="text/javascript">
+        function update() {
+            var form = document.getElementById("calc");
+            var layers = parseInt(form.elements["layers"].value);
+            var width = parseInt(form.elements["width"].value);
+            var height = parseInt(form.elements["height"].value);
+            var bits = parseInt(form.elements["bits"].value);
+
+            var bytes = 4 * (bits / 8) * width * height * layers;
+            form.elements["GB"].value = (bytes / (1000 * 1000 * 1000.0)).toFixed(2);
+            form.elements["GiB"].value = (bytes / (1024 * 1024 * 1024.0)).toFixed(2);
+        }
+    </script>
+</head>
+
+<body onload="update()"/>
+    <p>
+        Use this form to figure out how much memory your computer needs to store your Photoshop document.
+    </p>
+    <p>
+        Note that layer masks and the undo-redo system use extra memory.
+    </p>
+    <hr/>
+    <form id="calc" oninput="update()">
+        <ul>
+            <li>
+                <label for="layers">layers:</label>
+                <input name="layers" type="number" value="10" onchange="update()"/>
+            </li>
+            <li>
+                <label for="width">width:</label>
+                <input name="width" type="number" value="4000" onchange="update()"/>
+            </li>
+            <li>
+                <label for="height">height:</label>
+                <input name="height" type="number" value="4000" onchange="update()"/>
+            </li>
+            <li>
+                bit depth:
+                <input type="radio" name="bits" value="8" id="bits8" checked onchange="update()"/>
+                <label for="bits8">8</label>
+                <input type="radio" name="bits" value="16" id="bits16" onchange="update()"/>
+                <label for="bits16">16</label>
+            </li>
+            <li id="outbox">
+                GB memory needed:
+                <output name="GB" for="layers width height bits">0</output>
+                (<output name="GiB" for="layers width height bits">0</output> GiB)
+            </li>
+        </ul>
+    </form>
+</body>
+
+</html>
