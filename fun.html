@@ -110,6 +110,28 @@ wget -r --no-parent --spider --no-verbose --accept "*.pdf" $1 2>&1 \
     | xargs pdfjoin --outfile "book.pdf" --rotateoversize false
 </pre>
 
+  <h4><code>hearing protector</code></h4>
+  <p>Make your computer turn down the volume imperceptibly every few minutes, so you don't accidentally listen to loud music for a long time.</p>
+
+  <p>
+    Most Linux systems should include <code>cron</code>.
+    In a shell, type <code>crontab -e</code> to edit your cron file.
+    Add the line:
+    <pre>
+*/2 * * * * /home/james/.reduce_volume.sh
+</pre>
+    Replace <code>james</code> with your user name.
+    The <code>/2</code> indicates that the script should run every 2 minutes.
+    Now create the file <code>~/.reduce_volume.sh</code> with the contents:
+    <pre>
+if (! pgrep i3lock);
+then
+    amixer -q set Master 1%-
+fi
+</pre>
+    If you don't use i3lock, you need some other way to detect when the machine is locked. Otherwise the volume will reach 0 whenever you leave the computer for a while.
+  </p>
+
   <h4><code>.bashrc snippets</code></h4>
   <p>
     Some one-liners from my .bashrc that might be useful.
@@ -122,7 +144,7 @@ alias pynp='python -i -c"import numpy as np; import numpy.linalg as la; \
             import seaborn as sns; import pandas as pd"'
 
 # Shortcut to run latexmk "Overleaf style" locally.
-latexmker() { latexmk -pdf -pvc $1 &lt;/dev/null; }
+alias latexmker='latexmk -pdf -pvc -interaction=nonstopmode'
 
 # Run pdfcrop on all .pdf files in the current directory.
 pdfcropall() { find . -name "*.pdf" | xargs -P 8 -I@ pdfcrop @ @ }
