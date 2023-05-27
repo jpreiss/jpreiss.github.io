@@ -2,7 +2,7 @@ body {
   font-family: "lucida sans unicode", "lucida grande", "lucida sans", sans-serif;
   margin: 0 auto;
   max-width: 800px;
-  line-height: 1.5;
+  line-height: 1.6;
   background: #F0F0F0;
   padding-bottom: 30px;
 }
@@ -47,7 +47,7 @@ ul {
 }
 
 ul li {
-  margin: 10pt 0;
+  margin: 16pt 0;
 }
 
 h3 {
@@ -63,6 +63,17 @@ h3 {
   border-bottom: 1px solid #AAA;
   margin-top:24pt;
 }
+
+.paperaward {
+  color: #156;
+  background: #EFF;
+}
+
+.venue {
+  color: #777;
+  font-style: italic;
+}
+
 
 /* code snippets */
 pre {
