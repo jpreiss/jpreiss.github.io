@@ -31,42 +31,52 @@ h2 {
   padding: 0 6pt;
 }
 
-/* sections */
+/* Tiny text at bottom of intro. */
+.updated-notice {
+  font-size: 10pt;
+  font-style: italic;
+}
+
+
+/* Sections. */
 .section {
   background: #FFF;
   margin: 0;
-  padding: 5pt 16pt 5pt 16pt;
+  padding: 5pt 20px 5pt 20px;
 }
-
-.section ul {
-  padding-left: 10pt;
-}
-
-ul {
-  margin: 0;
-}
-
-ul li {
-  margin: 16pt 0;
-}
-
+/* Tabs on top of sections. */
 h3 {
   font-size: 18pt;
-  margin-top: 24pt;
+  margin-top: 32pt;
   margin-bottom: 0;
   line-height: 1.2;
 }
-
-/* headings within sections */
-.section h4 {
-  font-size: 12pt;
-  border-bottom: 1px solid #AAA;
-  margin-top:24pt;
+/* Gives a background color only under the text instead of whole line. */
+h3 span {
+  background: #111;
+  color: #FFF;
+  padding: 0 3pt;
+  margin: 0;
 }
 
+
+/* Lists are used for papers and software packages. */
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  margin: 6px 0;
+  padding: 8px 10px;
+}
+
+
+/* Styles used in papers. */
 .paperaward {
   color: #156;
-  background: #EFF;
+  background: rgba(0, 255, 255, 0.067);
 }
 
 .venue {
@@ -75,7 +85,57 @@ h3 {
 }
 
 
-/* code snippets */
+/* If a paper/software is an anchor and we link to it, highlight it with an
+ * animation to draw the viewer's attention. */
+li:target {
+  background: #DEF;
+  animation: targetblink 0.75s 5;
+}
+@keyframes targetblink {
+  0%, 100% { background: #DEF; }
+  50%      { background: #BDF; }
+}
+
+
+/* Topic video+blurb chunks. */
+.topic {
+  display: flex;
+  flex-flow: row wrap;
+  column-gap: 20px;
+  row-gap: 20px;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.topic video {
+  flex: 2 200px;
+  width: 100%;
+  max-width: 420px;
+  margin: auto;
+}
+
+.topic div {
+  flex: 5.2 520px;
+}
+
+.topic h4 {
+  /* align top of uppercase letters with top of video. TODO: how to do without
+   * magic numbers? */
+  margin-top: -4px;
+  margin-bottom: 16px;
+  font-size: 14pt;
+}
+
+
+/* Headings within sections. */
+.minisection {
+  font-size: 12pt;
+  border-bottom: 1px solid #AAA;
+  margin-top:24pt;
+}
+
+
+/* Code snippets. */
 pre {
   border: 1px solid #BBB;
   border-radius: 8pt;
@@ -83,27 +143,15 @@ pre {
   color: #333;
 }
 
-/* tiny text at bottom of intro */
-.updated-notice {
-  font-size: 10pt;
-  font-style: italic;
-}
 
-/* the tabs on top of the sections */
-h3 span {
-  background: #111;
-  color: #FFF;
-  padding: 0 3pt;
-  margin: 0;
-}
-
-/* special sections */
+/* Special sections. */
 .email {
   font-family: monospace;
   white-space: pre-wrap;
 }
 
-/* link animation stolen from meowni.ca */
+
+/* Link hover animation stolen from meowni.ca. */
 a {
   color: #28D;
   text-decoration: none;
@@ -126,4 +174,3 @@ a:hover {
   68%      { color: #B10DC9; }
   85%      { color: #FF4136; }
 }
-

@@ -10,14 +10,14 @@
 
 <div class="header">
 <h1>James Alan Preiss</h1>
-<h2>learning, control, robotics</h2>
+<h2>robotics, learning, control</h2>
 
 <div class="linkstrip">
 <!--<a href="">c.v.</a> -->
-<a href="JamesPreissCV.pdf">CV</a> 
+<a href="JamesPreissCV.pdf">CV</a>
 | <a href="https://scholar.google.com/citations?user=gXkGd7EAAAAJ&hl=en">g-scholar</a> 
-| <a href="https://github.com/jpreiss">github</a> 
-| <a href="https://www.linkedin.com/in/jamespreiss">linkedin</a> 
+| <a href="https://github.com/jpreiss">github</a>
+| <a href="https://www.linkedin.com/in/jamespreiss">linkedin</a>
 | <a href="https://arxiv.org/search/?searchtype=author&query=Preiss%2C+J+A">arxiv</a>
 </div>
 </div>
@@ -27,46 +27,38 @@
 <div class="section">
 <p>
 I am a postdoctoral scholar in
-<a href="https://www.cms.caltech.edu">the Department of Computing + Mathematical Sciences</a>
-at <a href="https://www.caltech.edu/">Caltech</a>,
-where I am co-advised by
+<a href="https://www.cms.caltech.edu">Computing + Mathematical Sciences</a>
+at Caltech, where I am co-advised by
 <a href="http://www.yisongyue.com">Yisong Yue</a>,
 <a href="https://aerospacerobotics.caltech.edu">Soon-Jo Chung</a>,
 and
 <a href="https://adamwierman.com">Adam Wierman</a>.
-I completed my Ph.D. with Prof. Gaurav Sukhatme at the
-USC <a href="https://robotics.usc.edu/resl/">Robotic Embedded Systems Lab</a> (RESL).
+I completed my Ph.D. with Prof.
+<a href="http://www-robotics.usc.edu/~gaurav/">Gaurav Sukhatme</a>
+at the University of Southern California in 2022.
 </p>
 
+<p><b>I am currently on the academic job market.</b></p>
+
 <p>
-I am interested in robotics, machine learning, control theory, optimization, and their intersections &mdash;
+My interests are robotics, machine learning, optimization, control, and their intersections &mdash;
 both theoretical and practical.
-Recent projects include
-regret bounds for online controller selection,
-policy gradient reinforcement learning theory,
-combining deep dynamics models with traditional control,
-and developing the framework of suboptimal covering numbers to quantify the "size" of infinite sets of optimal control tasks.
+My long-term goal is to make robot learning <i>reliable</i> by
+1) building insight into problem structure,
+2) designing algorithms with rigorous performance guarantees, and
+3) deploying them on a diverse set of robots.
 </p>
 
 <p>
-Earlier projects include trajectory optimization hardness analysis,
-empirical projects in RL,
-multi-robot motion planning,
-and co-developing/maintaining
-the <a href="https://github.com/USC-ACTLab/crazyswarm">Crazyswarm</a> platform for multi-quadrotor research
-with Wolfgang Hönig.
-</p>
-
-<p>
-Before starting my Ph.D.,
+Earlier,
 I developed software
 for 3d scanning at <a href="http://www.geomagic.com/en/">Geomagic</a>
 and interactive statistics at <a href="http://www.jmp.com/en_us/software/jmp.html">the JMP division of SAS Institute</a>.
 I completed a B.S. in Mathematics and B.A. in Photography at
-<a href="http://evergreen.edu/">The Evergreen State College</a> in Olympia, WA.
+<a href="http://evergreen.edu/">The Evergreen State College</a>.
 </p>
 
-<p class="updated-notice">This page last updated October 2023.</p>
+<p class="updated-notice">This page last updated November 2023.</p>
 </div>
 
 <!--
@@ -84,16 +76,150 @@ Observability-Aware Trajectory Optimization for Self-Calibration with Applicatio
 </ul>
 </div>
 -->
+<h3><span>research topics</span></h3>
+<div class="section">
+
+  <div class="topic">
+    <video autoplay loop>
+      <!--<source src="images/gaps.webm" type="video/webm" />-->
+      <source src="images/linc.webm" type="video/webm" />
+    </video>
+    <div>
+      <h4>Online/Adaptive Control</h4>
+      <p>
+        In real-world applications, we cannot prepare for every possible situation ahead of time.
+        Our algorithms adapt the robot's control policy to an adversarial time-varying environment with performance guarantees.
+        For continuously-parameterized policies, our
+        <a href="#online-adaptive-neurips-2023">
+          gradient-based method
+        </a>
+        substantially generalizes previous work,
+        including a local regret bound for nonconvex settings.
+        For finite policy sets, our
+        <a href="#switching-regret-l4dc-2023">
+          switching-based method
+        </a>
+        achieves regret bounds while identifying destabilizing policies.
+      </p>
+    </div>
+  </div>
+
+  <div class="topic">
+    <video autoplay loop>
+      <source src="images/quadrl.webm" type="video/webm" />
+    </video>
+    <div>
+      <h4>Reinforcement Learning </h4>
+      <p>
+        Directly optimizing a policy by strategic trial-and-error
+        can improve performance and reduce effort compared to classical methods.
+        For example, in our
+        <a href="#quadrotor-rl-iros-2019">
+          sim-to-real transfer for a quadrotor
+        </a>
+        (shown).
+        However, RL can also be unreliable, and its theory
+        (such as
+        <a href="#policy-gradient-neurips-workshop-2019">
+          our work on REINFORCE
+        </a>
+        for LQR problems)
+        does not currently extend to the complexity of robots.
+        Developing <i>reliable</i> RL algorithms for robotics requires further theoretical insights.
+      </p>
+    </div>
+  </div>
+
+  <div class="topic">
+    <video autoplay loop>
+      <source src="images/defmanip.webm" type="video/webm" />
+    </video>
+    <div>
+      <h4>Planning and Control with Learning Components</h4>
+      <p>
+        Planning and control with learned models can be a final goal or a subroutine of model-based reinforcement learning.
+        For deformable objects (shown),
+        the full state is partially observable,
+        so we
+        <a href="#tracking-deformable-icra-2022">
+          learn an abstract state-space model
+        </a>
+        from input-output data using a recurrent neural network.
+        We then apply nonlinear estimation and control techniques to the learned model.
+      </p>
+      <span style="font-size: small; color: #888">
+        video graphics by <a href="http://www.dmillard.org/">David Millard</a>
+      </span>
+    </div>
+  </div>
+
+</div>
+
+<h3><span>research philosophy</span></h3>
+<div class="section">
+  <div class="topic">
+    <video autoplay loop>
+      <source src="images/subopt.webm" type="video/webm" />
+    </video>
+    <div>
+      <h4>Problem Structure and Tractability</h4>
+      <p>
+        Current theory on learning to control can only provide guarantees under strong assumptions that exclude many robotic applications.
+        However, heursitic algorithms can work well in practice.
+        To close this gap, we need a more sophisticated understanding of 
+        why the learn-to-control problem instances arising in robotics are often tractable.
+      </p>
+      <p>
+        Animation is from
+        <a href="#suboptimal-coverings-l4dc-2021">
+          our work on suboptimal coverings,
+        </a>
+        where we develop a framework to measure the "size" of an infinite set of control tasks.
+        The topology of suboptimal neighborhoods can be surprisingly complicated.
+      </p>
+    </div>
+  </div>
+
+  <div class="topic">
+    <video autoplay loop>
+      <source src="images/crazyswarm.webm" type="video/webm" />
+    </video>
+    <div>
+      <h4>Robotics Foundations</h4>
+      <p>
+        Robot learning algorithms cannot be reliable unless the underlying hardware and software are reliable too.
+        I co-developed
+        (with <a href="https://whoenig.github.io/"> Wolfgang Hönig</a>)
+        the <a href="https://crazyswarm.readthedocs.io/en/latest/">Crazyswarm</a>
+        platform to control 49+ quadrotors from one PC.
+        Crazyswarm is widely used in universities worldwide for multi-robot research, including
+        <a href="#quad-planning-iros-2017">
+          our work on formation change planning
+        </a>
+        for large quadrotor teams and
+        <a href="#quad-planning-ijrr-2018">
+          its extension
+        </a>
+        to more complex problem variants.
+      </p>
+      <p>
+        Some of my other open-source libraries are
+        <a href="#software">listed below</a>.
+      </p>
+    </div>
+  </div>
+</div>
+
 
 <h3><span>publications</span></h3>
 <div class="section">
 <ul>
-  <li>
+  <li id="online-adaptive-neurips-2023">
     <b>Online Adaptive Controller Selection in Time-Varying Systems: No-Regret via Contractive Perturbations.</b>
     <br/>Yiheng Lin, James A. Preiss, Emile Anand, Yingying Li, Yisong Yue, and Adam Wierman.
     <br/><span class="venue">Neural Information Processing Systems (NeurIPS), 2023 (to appear).</span>
   </li>
-  <li>
+  <li id="switching-regret-l4dc-2023">
     <b>Online switching control with stability and regret guarantees.</b>
     <br/>Yingying Li, James A. Preiss, Na Li, Yiheng Lin, Adam Wierman, and Jeff Shamma.
     <br/><span class="venue">Learning for Dynamics &amp; Control (L4DC), 2023.</span> [<a href="https://arxiv.org/abs/2301.08445">preprint</a>]
@@ -109,13 +235,13 @@ Observability-Aware Trajectory Optimization for Self-Calibration with Applicatio
     <br/>Yiheng Lin, James A. Preiss, Emile Anand, Yingying Li, Yisong Yue, and Adam Wierman.
     <br/><span class="venue">arXiv preprint, 2022.</span> [<a href="https://arxiv.org/abs/2210.12320">preprint</a>]
   </li>
-  <li>
+  <li id="tracking-deformable-icra-2022">
     <b>Tracking Fast Trajectories with a Deformable Object using a Learned Model.</b>
     <br/>James A. Preiss*, David Millard*, Tao Yao*, and Gaurav S. Sukhatme
     <br/><span class="venue">IEEE International Conference on Robotics and Automation (ICRA), 2022.</span>
     [<a href="https://ieeexplore.ieee.org/document/9812189">IEEE page</a>]
   </li>
-  <li>
+  <li id="suboptimal-coverings-l4dc-2021">
     <b>Suboptimal coverings for continuous spaces of control tasks.</b>
     <br/>James A. Preiss and Gaurav S. Sukhatme.
     <br/><span class="venue">Conference on Learning for Dynamics and Control (L4DC), 2021.</span>
@@ -134,7 +260,7 @@ Observability-Aware Trajectory Optimization for Self-Calibration with Applicatio
     [<a href="pubs/Preiss_Hotaj_Mazzawi_Closer_Look_RL_For_NAS_ICLR_NAS_Workshop_2020.pdf">pdf</a>]
     <br/><span class="paperaward">Selected for contributed talk</span>
   </li>
-  <li>
+  <li id="policy-gradient-neurips-workshop-2019">
     <b>Analyzing the Variance of Policy Gradient Estimators for the Linear-Quadratic Regulator.</b>
     <br/>James A. Preiss, Sébastien M. R. Arnold, Chen-Yu Wei and Marius Kloft.
     <br/><span class="venue">NeurIPS Workshop on Optimization Foundations for Reinforcement Learning, 2019.</span>
@@ -152,7 +278,7 @@ Observability-Aware Trajectory Optimization for Self-Calibration with Applicatio
     <br/><span class="venue">IEEE International Conference on Intelligent Robots and Systems (IROS), 2019.</span>
     [<a href="https://arxiv.org/abs/1903.04856">preprint</a>]
   </li>
-  <li>
+  <li id="quadrotor-rl-iros-2019">
     <b>Sim-to-(Multi)-Real: Transfer of Low-Level Robust Control Policies to Multiple Quadrotors.</b>
     <br/>Artem Molchanov, Tao Chen, Wolfgang Hönig, James A. Preiss, Nora Ayanian, and Gaurav S. Sukhatme.
     <br/><span class="venue">IEEE International Conference on Intelligent Robots and Systems (IROS), 2019.</span>
@@ -179,7 +305,7 @@ Observability-Aware Trajectory Optimization for Self-Calibration with Applicatio
     [<a href="http://journals.sagepub.com/doi/10.1177/0278364918781734">journal page</a>]
     [<a href="pubs/Preiss_Hausman_IJRR2018_Observability_Preprint.pdf">preprint</a>]
   </li>
-  <li>
+  <li id="quad-planning-ijrr-2018">
     <b>Trajectory Planning for Quadrotor Swarms.</b>
     <br/>Wolfgang H&ouml;nig, James A. Preiss, T.K. Satish Kumar, Gaurav S. Sukhatme, and Nora Ayanian.
     <br/><span class="venue">IEEE Transactions on Robotics (T-RO) special issue on aerial swarm robotics, 2018.</span>
@@ -192,7 +318,7 @@ Observability-Aware Trajectory Optimization for Self-Calibration with Applicatio
     <br/><span class="venue">Robotics: Science and Systems (RSS), 2017.</span>
     [<a href="http://www.roboticsproceedings.org/rss13/p54.pdf">pdf</a>]
   </li>
-  <li name="iros17planning">
+  <li id="quad-planning-iros-2017">
     <b>Downwash-Aware Trajectory Planning for Large Quadcopter Teams.</b>
     <br/>James A. Preiss, Wolfgang H&ouml;nig, Nora Ayanian, and Gaurav S. Sukhatme
     <br/><span class="venue">IEEE International Conference on Intelligent Robots and Systems (IROS), 2017.</span>
@@ -216,23 +342,59 @@ Observability-Aware Trajectory Optimization for Self-Calibration with Applicatio
 </ul>
 * = equal contributors.
 
-<h4>Ph.D. Dissertation</h4>
-<b>Characterizing and Improving Robot Learning: A Control-Theoretic Perspective.</b>
-<br/>James A. Preiss.
-<br/><span class="venue">University of Southern California, 2022.</span>
-[<a href="pubs/james_preiss_phd_dissertation.pdf">pdf</a>]
-<br/>
+<h4 class="minisection">Ph.D. Dissertation</h4>
+<ul>
+  <li>
+    <b>Characterizing and Improving Robot Learning: A Control-Theoretic Perspective.</b>
+    <br/>James A. Preiss.
+    <br/><span class="venue">University of Southern California, 2022.</span>
+    [<a href="pubs/james_preiss_phd_dissertation.pdf">pdf</a>]
+    <br/>
+  </li>
+</ul>
 </div>
 
-<h3><span>code</span></h3>
-<div class="section">
+<h3><span>open source software</span></h3>
+<div id="software" class="section">
 <ul>
-  <li><a href="https://github.com/USC-ACTLab/crazyswarm">crazyswarm</a> - our full stack for flying 49+ Crazyflie quadcopters in a motion capture space. Includes object tracking, improved radio protocols, onboard sensor fusion, nonlinear controller, onboard trajectory planning, ROS node, and Python scripting.</li>
-  <li><a href="https://github.com/jpreiss/reproducible_papers">reproducible papers</a> - using Makefiles to make a complete paper, including experiments, reproducible from a few shell commands.</li>
-  <li><a href="https://github.com/jpreiss/smoothener">smoothener</a> - convert multi-robot waypoint sequences into smooth piecewise polynomial trajectories. Implementation of the continuous portion of <a href="#iros17planning">our IROS 2017 paper</a>.</li>
-  <li><a href="https://github.com/jpreiss/cmath3d">cmath3d</a> - a 3d math library for embedded C.</li>
-  <li><a href="https://github.com/jpreiss/pputils">pputils</a> - utilities for working with piecewise polynomials in Matlab's ppform.</li>
-  <li><a href="https://github.com/jpreiss/quatcompress">quatcompress</a> - compress a quaternion into 32 bits.</li>
+  <li>
+    <a href="https://github.com/USC-ACTLab/crazyswarm">crazyswarm</a> -
+    our full stack for flying 49+ Crazyflie quadcopters in a motion capture space.
+    Includes object tracking, improved radio protocols, onboard sensor fusion, nonlinear controller, onboard trajectory planning, ROS node, and Python scripting.
+  </li>
+  <li>
+    <a href="https://github.com/jpreiss/mlpfile">mlpfile</a> -
+    a library for fast evaluation of multilayer perceptron neural networks in realtime applications.
+    Includes file format, Jacobians, online gradient descent, and allocation-free code generation.
+  </li>
+  <li>
+    <a href="https://github.com/jpreiss/reproducible_papers">reproducible papers</a> -
+    using Makefiles to make a complete paper, including experiments, reproducible from a few shell commands.
+  </li>
+  <li>
+    <a href="https://github.com/jpreiss/pypdfdeck">pypdfdeck</a> -
+    PDF slideshow presenter for Beamer users.
+    Deployed in the field for my Ph.D. defense :)
+  </li>
+  <li>
+    <a href="https://github.com/jpreiss/smoothener">smoothener</a> -
+    convert multi-robot waypoint sequences into smooth piecewise polynomial trajectories.
+    Implementation of the continuous portion of <a href="#quad-planning-iros-2017">our IROS 2017 paper</a>.
+  </li>
+  <li>
+    <a href="https://github.com/jpreiss/cmath3d">cmath3d</a> -
+    single-header C library for 3d math (vectors, quaternions, 3x3 matrices).
+  </li>
+  <!--
+  <li>
+    <a href="https://github.com/jpreiss/pputils">pputils</a> -
+    utilities for working with piecewise polynomials in Matlab's ppform.
+  </li>
+  -->
+  <li>
+    <a href="https://github.com/jpreiss/quatcompress">quatcompress</a> -
+    single-header C library to compress a quaternion into 32 bits.
+  </li>
 </ul>
 </div>
 
