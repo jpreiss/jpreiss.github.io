@@ -80,50 +80,51 @@ Observability-Aware Trajectory Optimization for Self-Calibration with Applicatio
 <div class="section">
 
   <div class="topic">
-    <video controls autoplay playsinline loop>
-      <!--<source src="images/gaps.mp4" type="video/mp4" />-->
-      <source src="images/linc.mp4" type="video/mp4" />
-    </video>
+    <div class="videobox">
+      <video muted preload autoplay playsinline loop>
+        <!--<source src="images/gaps.mp4" type="video/mp4" />-->
+        <source src="images/linc.mp4" type="video/mp4" />
+      </video>
+    </div>
     <div>
       <h4>Online/Adaptive Control</h4>
       <p>
-        In real-world applications, we cannot prepare for every possible situation ahead of time.
-        Our algorithms adapt the robot's control policy to an adversarial time-varying environment with performance guarantees.
-        For continuously-parameterized policies, our
+        In the real world we cannot prepare for all possible situations in advance.
+        Our algorithms adapt a control policy to an adversarial time-varying environment with regret guarantees.
+        For parameter&shy;ized policies, our
         <a href="#online-adaptive-neurips-2023">
           gradient-based method
         </a>
         substantially generalizes previous work,
-        including a local regret bound for nonconvex settings.
+        including a local result for nonconvex settings.
         For finite policy sets, our
         <a href="#switching-regret-l4dc-2023">
           switching-based method
         </a>
-        achieves regret bounds while identifying destabilizing policies.
+        can select the best black-box controller even if some are unstable.
       </p>
     </div>
   </div>
 
   <div class="topic">
-    <video controls autoplay playsinline loop>
-      <source src="images/quadrl.mp4" type="video/mp4" />
-    </video>
+    <div class="videobox">
+      <video muted preload autoplay playsinline loop>
+        <source src="images/quadrl.mp4" type="video/mp4" />
+      </video>
+    </div>
     <div>
       <h4>Reinforcement Learning </h4>
       <p>
         Directly optimizing a policy by strategic trial-and-error
         can improve performance and reduce effort compared to classical methods.
-        For example, in our
+        For example,
         <a href="#quadrotor-rl-iros-2019">
-          sim-to-real transfer for a quadrotor
+          our sim-to-real transfer for quadrotors.
         </a>
-        (shown).
         However, RL can also be unreliable, and its theory
         (such as
         <a href="#policy-gradient-neurips-workshop-2019">
-          our work on REINFORCE
-        </a>
-        for LQR problems)
+          our work on REINFORCE</a>)
         does not currently extend to the complexity of robots.
         Developing <i>reliable</i> RL algorithms for robotics requires further theoretical insights.
       </p>
@@ -131,9 +132,11 @@ Observability-Aware Trajectory Optimization for Self-Calibration with Applicatio
   </div>
 
   <div class="topic">
-    <video controls autoplay playsinline loop>
-      <source src="images/defmanip.mp4" type="video/mp4" />
-    </video>
+    <div class="videobox">
+      <video muted preload autoplay playsinline loop>
+        <source src="images/defmanip.mp4" type="video/mp4" />
+      </video>
+    </div>
     <div>
       <h4>Planning and Control with Learning Components</h4>
       <p>
@@ -147,7 +150,7 @@ Observability-Aware Trajectory Optimization for Self-Calibration with Applicatio
         from input-output data using a recurrent neural network.
         We then apply nonlinear estimation and control techniques to the learned model.
       </p>
-      <span style="font-size: small; color: #888">
+      <span class="addendum">
         video graphics by <a href="http://www.dmillard.org/">David Millard</a>
       </span>
     </div>
@@ -158,32 +161,35 @@ Observability-Aware Trajectory Optimization for Self-Calibration with Applicatio
 <h3><span>research philosophy</span></h3>
 <div class="section">
   <div class="topic">
-    <video controls autoplay playsinline loop>
-      <source src="images/subopt.mp4" type="video/mp4" />
-    </video>
+    <div class="videobox">
+      <video muted preload autoplay playsinline loop>
+        <source src="images/subopt.mp4" type="video/mp4" />
+      </video>
+    </div>
     <div>
       <h4>Problem Structure and Tractability</h4>
       <p>
-        Current theory on learning to control can only provide guarantees under strong assumptions that exclude many robotic applications.
-        However, heursitic algorithms can work well in practice.
+        Current theory on learning to control provides guarantees under strong assumptions that exclude many robotic applications.
+        But heursitic algorithms can work well in practice.
         To close this gap, we need a more sophisticated understanding of 
-        why the learn-to-control problem instances arising in robotics are often tractable.
+        why the problem instances arising in robotics are often tractable.
       </p>
-      <p>
-        Animation is from
+      <p class="addendum">
+        Animation shows a topological phenomenon from
         <a href="#suboptimal-coverings-l4dc-2021">
           our work on suboptimal coverings,
         </a>
-        where we develop a framework to measure the "size" of an infinite set of control tasks.
-        The topology of suboptimal neighborhoods can be surprisingly complicated.
+        a framework to quantify the "size" of infinite sets of control tasks.
       </p>
     </div>
   </div>
 
   <div class="topic">
-    <video controls autoplay playsinline loop>
-      <source src="images/crazyswarm.mp4" type="video/mp4" />
-    </video>
+    <div class="videobox">
+      <video muted preload autoplay playsinline loop>
+        <source src="images/crazyswarm.mp4" type="video/mp4" />
+      </video>
+    </div>
     <div>
       <h4>Robotics Foundations</h4>
       <p>
@@ -194,13 +200,11 @@ Observability-Aware Trajectory Optimization for Self-Calibration with Applicatio
         platform to control 49+ quadrotors from one PC.
         Crazyswarm is widely used in universities worldwide for multi-robot research, including
         <a href="#quad-planning-iros-2017">
-          our work on formation change planning
+          our work on multi-quadrotor planning
         </a>
-        for large quadrotor teams and
+        and
         <a href="#quad-planning-ijrr-2018">
-          its extension
-        </a>
-        to more complex problem variants.
+          its extension.</a>
       </p>
       <p>
         Some of my other open-source libraries are

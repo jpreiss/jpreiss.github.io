@@ -107,23 +107,31 @@ li:target {
   padding-bottom: 1em;
 }
 
-.topic video {
-  flex: 2 200px;
+.topic .videobox {
+  flex: 22 220px;
+  text-align: center;
+}
+
+.topic video{
   width: 100%;
-  max-width: 420px;
-  margin: auto;
+  max-width: 400px;
 }
 
 .topic div {
-  flex: 5.2 520px;
+  flex: 50 500px;
 }
 
 .topic h4 {
   /* align top of uppercase letters with top of video. TODO: how to do without
    * magic numbers? */
-  margin-top: -4px;
+  margin-top: -8px;
   margin-bottom: 16px;
   font-size: 14pt;
+}
+
+.topic .addendum {
+  font-size: small;
+  color: #888;
 }
 
 
