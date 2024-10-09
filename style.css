@@ -36,6 +36,10 @@ h2 {
   font-size: 10pt;
   font-style: italic;
 }
+.max-emphasis {
+  font-size: 10pt;
+  color: #FFF;
+}
 
 
 /* Sections. */
