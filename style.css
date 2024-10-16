@@ -76,6 +76,16 @@ ul li {
   padding: 8px 10px;
 }
 
+/* For actual text lists instead of paper list. */
+.bulletlist {
+  list-style: disc inside;
+  padding: 0 0 0 20px;
+}
+.bulletlist li {
+  margin: 2px 0;
+  padding: 0;
+}
+
 
 /* Styles used in papers. */
 .paperaward {
