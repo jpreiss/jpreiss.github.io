@@ -146,6 +146,9 @@ alias pynp='python -i -c"import numpy as np; import numpy.linalg as la; \
 # Shortcut to run latexmk "Overleaf style" locally.
 alias latexmker='latexmk -pdf -pvc -interaction=nonstopmode'
 
+# Moves newest few files from ~/Downloads to destination. Example: mvdown 3 .
+mvdown() { ls -t ~/Downloads | head -$1 | xargs -I\{\} mv ~/Downloads/\{\} $2; }
+
 # Run pdfcrop on all .pdf files in the current directory.
 pdfcropall() { find . -name "*.pdf" | xargs -P 8 -I@ pdfcrop @ @ }
 
